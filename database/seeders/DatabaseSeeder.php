@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+         $faker = Faker::create();
+
           User::updateOrCreate([
             'email' => 'ianreeves19981@gmail.com'
         ], [
@@ -32,51 +35,51 @@ class DatabaseSeeder extends Seeder
             'admin' => 1,
         ]);
 
-            Category::updateOrCreate([
-            'title' => 'Category 1',
+        Category::updateOrCreate([
+            'title' => $faker->word,
         ], [
-            'slug' => 'Category 1',
+            'slug' => $faker->slug,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-            Category::updateOrCreate([
-            'title' => 'Category 2',
+        Category::updateOrCreate([
+            'title' => $faker->word,
         ], [
-            'slug' => 'Category 2',
+            'slug' => $faker->slug,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
+        // Create or update products
         Product::updateOrCreate([
-            'name' => 'Product 1',
+            'name' => $faker->word,
         ], [
-            'description' => 'Product 1 Description',
-            'price' => '15',
-            'qty' => '3',
-            'image' => 'https://randomimageul.com',
-            'in_stock' => '1',
-            'basket_id' => null,
+            'description' => $faker->sentence,
+            'price' => $faker->randomFloat(2, 10, 100), // random price between 10 and 100
+            'qty' => $faker->numberBetween(1, 10), // random quantity between 1 and 10
+            'image' => $faker->imageUrl, // random image URL
+            'in_stock' => $faker->boolean,
+            'basket_id' => null, // Assuming basket_id and order_id are nullable
             'order_id' => null,
-            'category_id' => 1,
+            'category_id' => 1, // Assign to a specific category
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         Product::updateOrCreate([
-            'name' => 'Product 2',
+            'name' => $faker->word,
         ], [
-            'description' => 'Product 2 Description',
-            'price' => '20',
-            'qty' => '5',
-            'image' => 'https://randomimageul.com',
-            'in_stock' => '1',
-            'basket_id' => '1',
-            'order_id' => '1',
-            'category_id' => 2,
+            'description' => $faker->sentence,
+            'price' => $faker->randomFloat(2, 10, 100), // random price between 10 and 100
+            'qty' => $faker->numberBetween(1, 10), // random quantity between 1 and 10
+            'image' => $faker->imageUrl, // random image URL
+            'in_stock' => $faker->boolean,
+            'basket_id' => $faker->optional()->randomDigitNotNull, // random non-null basket_id or null
+            'order_id' => $faker->optional()->randomDigitNotNull, // random non-null order_id or null
+            'category_id' => 2, // Assign to another specific category
             'created_at' => now(),
             'updated_at' => now(),
-       
-             ]);
+        ]);
     }
 }
