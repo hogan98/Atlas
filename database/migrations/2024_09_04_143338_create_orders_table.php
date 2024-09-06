@@ -13,16 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_number')->index();
-            $table->integer('total_qty');
-            $table->decimal('total_price', 10, 2);    
-            $table->string('product_name')->index();
-            $table->integer('product_quantity');
-            $table->decimal('product_price', 10, 2);
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->unsignedBigInteger('user_id')->index();
-            $table->unsignedBigInteger('product_id')->index();
-            $table->unsignedBigInteger('basket_id')->index();
             $table->timestamps();
         });
     }

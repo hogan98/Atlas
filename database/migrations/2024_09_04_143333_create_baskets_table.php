@@ -14,12 +14,10 @@ return new class extends Migration
         Schema::create('baskets', function (Blueprint $table) {
             $table->id();
             $table->string('session_id')->index();
-            $table->integer('total_price');
-            $table->integer('total_qty');
+            $table->integer('price');
+            $table->integer('qty');
             $table->unsignedBigInteger('product_id')->index();
-            $table->unsignedBigInteger('order_id')->index();
             $table->timestamps();
-            $table->softDeletes()->index();
         });
     }
 

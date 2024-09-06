@@ -11,10 +11,9 @@ class Basket extends Model
 
     protected $fillable = [
         'session_id',
-        'total_price',
-        'total_qty',
+        'price',
+        'qty',
         'product_id',
-        'order_id',
     ];
 
 }
