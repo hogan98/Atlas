@@ -49,11 +49,18 @@
                                 </li>
                             @endif
                         @else
-                                @if(auth()->user()->isAdmin())
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Admin') }}</a>
-                                    </li>
-                                @endif
+
+                        @if(auth()->user()->isAdmin())
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ __('Admin') }}</a>
+                            
+                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" role="button" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                                    <a class="dropdown-item" role="button" href="{{ route('admin.categories.index') }}">{{ __('Categories') }}</a>
+                                    
+                                 </div>
+                            </li>
+                        @endif
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

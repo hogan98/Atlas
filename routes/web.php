@@ -22,4 +22,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function() {
 		Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+		//Category routes
+		Route::resource('/categories', App\Http\Controllers\Admin\CategoriesController::class)->except('show');
 });
