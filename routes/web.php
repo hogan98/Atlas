@@ -25,4 +25,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
 		//Category routes
 		Route::resource('/categories', App\Http\Controllers\Admin\CategoriesController::class)->except('show');
+		
+		//User routes
+		Route::resource('/users', App\Http\Controllers\Admin\UsersController::class)->except(['show', 'create','store']);
 });

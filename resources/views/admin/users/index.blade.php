@@ -1,26 +1,22 @@
 @extends('layouts.app')
 
-@section('title', 'Categories')
+@section('title', 'Users')
 
 @section('content')
 
 <div class="container">
-    <h1 class="text-center">Categories</h1>
-        
-    <div class="mb-4">
-        <a class="btn btn-primary text-white" href="{{ route('admin.categories.create') }}">Add a Category</a>
-    </div>
+    <h1 class="text-center">Users</h1>
 
     <div class="table-responsive">
-        @if(count($categories))
+        @if(count($users))
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">
-                            Title
+                            Name
                         </th>
                         <th scope="col">
-                            Slug
+                            email
                         </th>
                         <th scope="col">
                             Created At
@@ -35,26 +31,26 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($users as $user)
                         <tr>
                             <td>
-                                {{ $category->title }}
+                                {{ $user->name }}
                             </td>
                             <td>
-                                {{ $category->slug }}
+                                {{ $user->email }}
                             </td>
                             <td>
-                                {{ $category->created_at?->format('d/m/Y H:i')}}
+                                {{ $user->created_at?->format('d/m/Y H:i')}}
                             </td>
                             <td>
-                                {{ $category->updated_at?->format('d/m/Y H:i')}}
+                                {{ $user->updated_at?->format('d/m/Y H:i')}}
                             </td>
                             <td>
-                                <form method="POST" action={{ route('admin.categories.destroy', $category) }}>
+                                <form method="POST" action={{ route('admin.users.destroy', $user) }}>
                                     @csrf
                                     @method('DELETE')
 
-                                    <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-success">Edit</a>
                                     <button class="btn btn-danger" type="submit" onclick="return confirmDelete()">Delete</button>
                                 </form>
                             </td>
@@ -65,7 +61,7 @@
             </table>
         @else
             <p>
-                There are no categories at the moment.
+                There are no users at the moment.
             </p>
         @endif
     </div>
@@ -74,7 +70,7 @@
 
 <script>
 function confirmDelete() {
-    return confirm("Are you sure you want to delete this category?");
+    return confirm("Are you sure you want to delete this User?");
 }
 
 </script>
