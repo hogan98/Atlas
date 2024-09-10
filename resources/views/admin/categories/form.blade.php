@@ -18,17 +18,9 @@
 
 
         <div>
-            <label for="title" class="my-2">Title</label>
-            <input type="text" id="title" name="title" class="form-control" value="{{ old('title', $category->title) }}" >
-            @error('title')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-
-            <label for="slug" class="my-2">Slug</label>
-            <input type="text" id="slug" name="slug" class="form-control" value="{{ old('slug', $category->slug) }}" >
-            @error('slug')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            <x-form-input id="title" name="title" value="{{ $category->title }}" label="Title" error="{{ $errors->first('title') }}" />
+            
+            <x-form-input id="slug" name="slug" value="{{ $category->slug }}" label="Slug" error="{{ $errors->first('slug') }}" />
         </div>
 
         <button type="submit" class="btn-primary btn mt-3">Save Changes</button>
