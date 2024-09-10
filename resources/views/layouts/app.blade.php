@@ -58,7 +58,7 @@
                                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" role="button" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
                                     <a class="dropdown-item" role="button" href="{{ route('admin.categories.index') }}">{{ __('Categories') }}</a>
-                                    {{-- <a class="dropdown-item" role="button" href="{{ route('admin.products.index') }}">{{ __('Products') }}</a> --}}
+                                    <a class="dropdown-item" role="button" href="{{ route('admin.products.index') }}">{{ __('Products') }}</a>
                                     <a class="dropdown-item" role="button" href="{{ route('admin.users.index') }}">{{ __('Users') }}</a>
                                     
                                  </div>

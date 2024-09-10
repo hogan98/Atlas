@@ -51,7 +51,11 @@
                                     @method('DELETE')
 
                                     <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-success">Edit</a>
-                                    <button class="btn btn-danger" type="submit" onclick="return confirmDelete()">Delete</button>
+
+                                    @if(auth()->user()->id !== $user->id)
+                                        <button class="btn btn-danger" type="submit" onclick="return confirmDelete()">Delete</button>
+                                    @endif
+                                    
                                 </form>
                             </td>
                         </tr>
