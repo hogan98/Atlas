@@ -58,12 +58,16 @@
                             <td>
                                 {{ $product->price }}
                             </td>
+                            
                             <td>
-                                {{ $product->image }}
+                                @if($product->image)
+                                    <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" style="max-width: 100px;">
+                                @else
+                                    No Image
+                                @endif
                             </td>
                             <td>
                                 {{ $product->in_stock ? 'Yes' : 'No' }}
-                           
                             </td>
                             <td>
                                 {{ $product->category->title }}
@@ -79,7 +83,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-success mb-1">Edit</a>
                                     <button class="btn btn-danger" type="submit" onclick="return confirmDelete()">Delete</button>
                                 </form>
                             </td>
