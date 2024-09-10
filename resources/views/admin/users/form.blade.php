@@ -20,9 +20,15 @@
         <div>
             <label for="name" class="my-2">Name</label>
             <input type="text" id="name" name="name" class="form-control" value="{{ old('name', $user->name) }}" >
-        
+            @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
             <label for="email" class="my-2">Email</label>
             <input type="text" id="email" name="email" class="form-control" value="{{ old('email', $user->email) }}" >
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <button type="submit" class="btn-primary btn mt-3">Save Changes</button>
