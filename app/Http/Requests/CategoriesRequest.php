@@ -23,7 +23,7 @@ class CategoriesRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
+            'slug' => 'required|alpha_dash:ascii|string|max:255|unique:categories',
         ];
     }
 }
