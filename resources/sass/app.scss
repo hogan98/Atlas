@@ -1,8 +1,28 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+
+.status-yellow {
+    color: rgba(255, 217, 0, 0.863) !important;
+    font-weight: bold;
+}
+
+.status-orange {
+    color: orange !important;
+    font-weight: bold;
+}
+
+.status-green {
+    color: green !important;
+    font-weight: bold;
+}
+
+.status-red {
+    color: red !important;
+    font-weight: bold;
+}

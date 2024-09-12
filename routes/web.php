@@ -31,4 +31,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 		
 		//Product routes
 		Route::resource('/products', App\Http\Controllers\Admin\ProductsController::class)->except('show');
+
+		//Orders routes
+		Route::resource('/orders', App\Http\Controllers\Admin\OrdersController::class)->except('show');
+
+		//Status routes
+		Route::resource('/status', App\Http\Controllers\Admin\StatusController::class)->except('show');
 });

@@ -28,7 +28,6 @@
             <x-form-input type="checkbox" id="in_stock" name="in_stock" value="1" label="In Stock" :checked="old('in_stock', $product->in_stock) == 1"/>
 
             <x-form-input id="category_id" name="category_id" type="select" :value="$product->category_id" :options="$categories->pluck('title', 'id')" label="Category" />
-
         </div>
 
         <button type="submit" class="btn-primary btn mt-3">Save Changes</button>
