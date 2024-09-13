@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/popup.js'])
 
 </head>
 <body>
@@ -94,5 +94,11 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this?");
+        }
+    </script>
 </body>
 </html>
+
