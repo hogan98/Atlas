@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
+// Route::view('/', 'home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function() {
@@ -33,7 +33,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 		Route::resource('/products', App\Http\Controllers\Admin\ProductsController::class)->except('show');
 
 		//Orders routes
-		Route::resource('/orders', App\Http\Controllers\Admin\OrdersController::class)->except('show');
+		Route::resource('/orders', App\Http\Controllers\Admin\OrdersController::class);
 
 		//Status routes
 		Route::resource('/status', App\Http\Controllers\Admin\StatusController::class)->except('show');

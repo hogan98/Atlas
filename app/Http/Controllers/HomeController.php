@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //only removed so that guests can also see it 
+        // $this->middleware('auth');
     }
 
     /**
@@ -23,7 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products = Product::orderBy('name')->get();
+
+        return view('home', compact('products'));
     }
 
 }

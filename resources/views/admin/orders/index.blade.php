@@ -39,7 +39,7 @@
                     @php
                         $statusClass = match($order->status->colour) {
                             'Yellow' => 'status-yellow',
-                            'Orange' => 'status-orange',
+                            'Blue' => 'status-blue',
                             'Green' => 'status-green',
                             'Red' => 'status-red',
                             default => '',
@@ -64,7 +64,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <a href="{{ route('admin.orders.edit', $order) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-success li-blue-custom-btn">View Order</a>
                                     <button class="btn btn-danger" type="submit" onclick="return confirmDelete()">Delete</button>
                                 </form>
                             </td>

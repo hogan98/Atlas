@@ -7,13 +7,15 @@
 // Bootstrap
 @import "bootstrap/scss/bootstrap";
 
+@import "layout/home.scss";
+
 .status-yellow {
-    color: rgba(255, 217, 0, 0.863) !important;
+    color: orange !important;
     font-weight: bold;
 }
 
-.status-orange {
-    color: orange !important;
+.status-blue {
+    color: rgba(0, 119, 255, 0.863) !important;
     font-weight: bold;
 }
 
@@ -25,4 +27,35 @@
 .status-red {
     color: red !important;
     font-weight: bold;
+}
+
+//custom buttons
+.li-blue-custom-btn {
+    background-color: #55c2da !important;
+    border-color: #55c2da !important;
+
+    &:hover {
+        background-color: #37a4bd !important;
+        border-color: #55c2da !important;
+    }
+}
+
+.green-custom-btn {
+    background-color: #5dbea3 !important;
+    border-color: #5dbea3 !important;
+
+    &:hover {
+        background-color: #238aa1 !important;
+        border-color: #238aa1 !important;
+    }
+}
+
+.purple-custom-btn {
+    background-color: #8e70af !important;
+    border-color: #8e70af !important;
+
+    &:hover {
+        background-color: #755797 !important;
+        border-color: #755797 !important;
+    }
 }
