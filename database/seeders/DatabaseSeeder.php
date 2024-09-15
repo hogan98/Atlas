@@ -76,5 +76,37 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        Status::updateOrCreate([
+            'name' => 'In Progress',
+        ], [
+            'colour' => 'Yellow',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        Status::updateOrCreate([
+            'name' => 'Pending',
+        ], [
+            'colour' => 'Blue',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        Status::updateOrCreate([
+            'name' => 'Complete',
+        ], [
+            'colour' => 'Green',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        Status::updateOrCreate([
+            'name' => 'Cancelled',
+        ], [
+            'colour' => 'Red',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
