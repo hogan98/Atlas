@@ -25,4 +25,9 @@ class Order extends Model
         return $this->belongsTo(Status::class);
     }
 
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
 }

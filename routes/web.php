@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+Route::get('/{id}', [App\Http\Controllers\HomeController::class, 'show'])->name('home.show');
 
+//cart
+Route::resource('cart', CartController::class);
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function() {
 		Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');

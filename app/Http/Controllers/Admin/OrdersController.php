@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrdersRequest;
 use App\Models\Order;
+use App\Models\Purchase;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,9 +17,9 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Order::orderBy('created_at')->get();
-        $orders = Order::with('user')->orderBy('created_at')->get();
-        $orders = Order::with('status')->orderBy('created_at')->get();        
+        $orders = Order::with('user', 'status')
+                    ->orderBy('created_at')
+                    ->get();       
 
         return view('admin.orders.index', compact('orders'));
     }
@@ -59,6 +60,15 @@ class OrdersController extends Controller
         $statuses = Status::orderBy('name')->get();
 
         return view('admin.orders.form', compact('order','users','statuses'));
+    }
+
+
+    public function show(Order $order)
+    {   
+        $order->load('user', 'status', 'purchases');  
+
+        return view('admin.orders.show', compact('order'));
+
     }
 
     /**

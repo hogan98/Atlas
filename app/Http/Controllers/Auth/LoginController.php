@@ -25,7 +25,14 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected function redirectTo()
+{
+    if (auth()->user()->is_admin) {  // Assuming is_admin is a field on your User model
+        return '/admin';
+    }
+
+    return '/'; 
+}
 
     /**
      * Create a new controller instance.

@@ -10,16 +10,26 @@ class Purchase extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'description',
         'qty',
         'price',
-        'status',
-        'purchase_date',
         'order_id',
-        'basket_id',
         'product_id',
-        'user_id',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function getTotalAttribute()
+    {
+        return $this->qty * $this->price;
+    }
+
 
 }
