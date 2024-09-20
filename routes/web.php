@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
-Route::get('/{id}', [App\Http\Controllers\HomeController::class, 'show'])->name('home.show');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('product/{slug}', [App\Http\Controllers\ProductsController::class, 'show'])->name('products.show');
 
-//cart
-Route::resource('cart', CartController::class);
+//basket
+Route::resource('basket', App\Http\Controllers\BasketController::class)->except(['create', 'edit']);
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function() {
 		Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
@@ -35,7 +35,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 		
 		//Product routes
 		Route::resource('/products', App\Http\Controllers\Admin\ProductsController::class)->except('show');
-
 		//Orders routes
 		Route::resource('/orders', App\Http\Controllers\Admin\OrdersController::class);
 

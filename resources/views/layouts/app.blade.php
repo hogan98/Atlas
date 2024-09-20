@@ -49,9 +49,10 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                        @else
-                        
 
+                            @include('partials.basket-dropdown')
+                        @else
+                    
                         @if(auth()->user()->isAdmin())
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ __('Admin') }}</a>
@@ -67,7 +68,7 @@
                                  </div>
                             </li>
                         @endif
-
+                            @include('partials.basket-dropdown')
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

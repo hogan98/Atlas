@@ -3,9 +3,7 @@
 @section('title', 'Orders')
 
 @section('content')
-{{-- @php
-dd($product);
-@endphp --}}
+
 <div class="container mt-5">
     <h1 class="text-center">Products</h1>
     <div class="row mt-5">
@@ -16,7 +14,7 @@ dd($product);
                     <h5 class="card-title">{{ $product->name }}</h5>
                     <p class="card-text">{{ $product->description }}</p>
                     <p class="card-text">€{{ $product->price }}</p>
-                    <a href="{{ route('home.show', $product) }}" class="btn green-custom-btn text-white fw-bold">View</a>
+                    <a href="{{ route('products.show', $product) }}" class="btn green-custom-btn text-white fw-bold">View</a>
                     <a href="#" class="btn purple-custom-btn text-white fw-bold ms-auto">Add to basket</a>
                 </div>
             </div>
