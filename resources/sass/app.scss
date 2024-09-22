@@ -11,6 +11,7 @@
 @import "bootstrap/scss/bootstrap";
 
 @import "layout/home.scss";
+@import "layout/basket.scss";
 
 .status-yellow {
     color: orange !important;
@@ -50,6 +51,21 @@
     &:hover {
         background-color: #238aa1 !important;
         border-color: #238aa1 !important;
+    }
+}
+
+.li-green-custom-btn {
+    background-color: #4cdaa6 !important;
+    border-color: #4cdaa6 !important;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+
+    &:hover {
+        background-color: #21bb82de !important;
+        border-color: #21bb82de !important;
+        color: white;
+        width: 100%;
     }
 }
 

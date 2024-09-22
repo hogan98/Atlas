@@ -43,7 +43,7 @@
                             <p class="card-text">€{{ $product->price }}</p>
                             
                             <form action={{ route('basket.store') }} method="POST">
-                                <a href="{{ route('products.show', $product) }}" class="btn green-custom-btn text-white fw-bold">View</a>
+                                {{-- <a href="{{ route('products.show', $product->slug) }}" class="btn green-custom-btn text-white fw-bold">View</a> --}}
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                                 <button type="submit" class="btn purple-custom-btn text-white fw-bold ms-auto">Add to basket</button>

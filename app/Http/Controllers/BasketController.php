@@ -73,9 +73,14 @@ public function update(Request $request, $id)
 
         // Handle the increase and decrease actions
         if ($request->action == 'increase') {
-            $basket[$id]['quantity'] += 1; // Increase quantity by 1
-        } elseif ($request->action == 'decrease' && $basket[$id]['quantity'] > 1) {
-            $basket[$id]['quantity'] -= 1; // Decrease quantity by 1 (but not below 1)
+            $basket[$id]['quantity'] += 1; 
+        } elseif ($request->action == 'decrease') {
+            
+            if ($basket[$id]['quantity'] > 1) {
+                $basket[$id]['quantity'] -= 1; 
+            } else {
+                unset($basket[$id]); // Remove product from basket if quantity is 0
+            }
         }
 
         // Update the session with the modified basket

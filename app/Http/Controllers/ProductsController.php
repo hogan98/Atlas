@@ -18,11 +18,13 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product,$id)
+    public function show($slug)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::where('slug', $slug)
+            ->firstOrFail();
 
         return view('products.show', compact('product'));
     }
+
 
 }

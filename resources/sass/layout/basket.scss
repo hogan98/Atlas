@@ -1,0 +1,71 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.5fr 2.5fr 1fr 1.5fr;
+    grid-template-rows: auto;
+    align-items: start;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-item {
+    padding: 10px;
+
+    &.img {
+        display: grid;
+        place-items: center;
+        grid-column: 1 / 2; /* Image should stay in first column */
+
+        button {
+            color: red;
+            text-decoration: underline;
+            background-color: transparent;
+            border: none;
+        }
+    }
+
+    &.quantity-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        grid-column: 3 / 4; /* Quantity should stay in third column */
+        input {
+            text-align: center;
+        }
+    }
+}
+
+/* Total column should span all rows */
+.grid-total {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 1.2rem 0 1.2rem;
+    background-color: #f1f1f1;
+    border-left: 1px solid #ddd;
+    margin-left: 1rem;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        grid-column: 1 / 4;
+        grid-row: auto;
+    }
+}
+
+.total-row,
+.button-row {
+    width: 100%; /* Ensure each row takes full width */
+}
+
+.button-row {
+    margin-top: auto;
+    margin-bottom: 1.3rem;
+
+    p {
+        font-size: 18px;
+    }
+}
