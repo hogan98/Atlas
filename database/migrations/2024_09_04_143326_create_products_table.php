@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->index();
             $table->text('description');
             $table->decimal('price');
+            $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->boolean('in_stock')->default(0);
             $table->unsignedBigInteger('category_id')->index();

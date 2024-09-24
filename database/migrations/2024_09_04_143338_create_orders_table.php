@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('status_id')->index();
-            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('user_id')->nullable()->index();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('phone');
+            $table->string('address');
             $table->timestamps();
         });
     }
