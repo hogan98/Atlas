@@ -26,6 +26,9 @@
                             Price
                         </th>
                         <th scope="col">
+                            Slug
+                        </th>
+                        <th scope="col">
                             Image
                         </th>
                         <th scope="col">
@@ -57,6 +60,10 @@
                             </td>
                             <td>
                                 {{ $product->price }}
+                            </td>
+
+                            <td>
+                                {{ $product->slug }}
                             </td>
                             
                             <td>

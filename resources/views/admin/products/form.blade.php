@@ -23,6 +23,8 @@
 
             <x-form-input type="number" min="0" step="0.01" id="price" name="price" :value="$product->price" label="Price" error="{{ $errors->first('price') }}" />
 
+            <x-form-input id="slug" name="slug" :value="$product->slug" label="Slug" error="{{ $errors->first('slug') }}" />
+
             <x-form-input type="file" id="image" name="image" :value="$product->image" label="Image" error="{{ $errors->first('image') }}" />
     
             <x-form-input type="checkbox" id="in_stock" name="in_stock" value="1" label="In Stock" :checked="old('in_stock', $product->in_stock) == 1"/>

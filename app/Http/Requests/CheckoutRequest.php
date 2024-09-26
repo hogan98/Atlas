@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductsRequest extends FormRequest
+class CheckoutRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return auth()->user()->isAdmin();
+        return true;
     }
 
     /**
@@ -23,12 +23,9 @@ class ProductsRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'description' => 'required|string|max:1000',
-            'price' => 'required|numeric|min:0',
-            'slug' => 'required|alpha_dash:ascii|string|max:255|unique:products',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'in_stock' => 'required|boolean',
-            'category_id' => 'required|exists:categories,id',
+            'email' => 'required|string|email|max:255',
+            'phone' => 'required|string',
+            'address' => 'required|string',
         ];
     }
 }

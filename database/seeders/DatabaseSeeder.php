@@ -58,6 +58,7 @@ class DatabaseSeeder extends Seeder
         ], [
             'description' => $faker->sentence,
             'price' => $faker->randomFloat(2, 10, 100), // random price between 10 and 100
+            'slug' => $faker->slug,
             'image' => $faker->imageUrl, // random image URL
             'in_stock' => $faker->boolean,
             'category_id' => 1, // Assign to a specific category
@@ -70,6 +71,7 @@ class DatabaseSeeder extends Seeder
         ], [
             'description' => $faker->sentence,
             'price' => $faker->randomFloat(2, 10, 100), 
+             'slug' => $faker->slug,
             'image' => $faker->imageUrl, 
             'in_stock' => $faker->boolean,
             'category_id' => 2, 

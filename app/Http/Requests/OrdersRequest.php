@@ -23,7 +23,6 @@ class OrdersRequest extends FormRequest
     {
         return [
             'status_id' => 'required|exists:statuses,id',
-            'user_id' => 'required|exists:users,id',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'phone' => 'required|string',

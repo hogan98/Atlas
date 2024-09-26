@@ -43,11 +43,18 @@
                             <p class="card-text">€{{ $product->price }}</p>
                             
                             <form action={{ route('basket.store') }} method="POST">
-                                {{-- <a href="{{ route('products.show', $product->slug) }}" class="btn green-custom-btn text-white fw-bold">View</a> --}}
+                                <a href="{{ route('products.show', $product->slug) }}" class="btn green-custom-btn text-white fw-bold">View</a>
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                <button type="submit" class="btn purple-custom-btn text-white fw-bold ms-auto">Add to basket</button>
+                                <button type="submit" class="btn purple-custom-btn text-white fw-bold ms-auto"
+                                    {{ !$product->in_stock ? 'disabled' : '' }}>
+                                    Add to basket
+                                </button>
                             </form>
+                            
+                            <p class="mt-2 {{ $product->in_stock ? 'text-success' : 'text-danger' }}">
+                                {{ $product->in_stock ? 'In Stock' : 'Out of Stock' }}
+                            </p>
                         </div>
                     </div>
                 </div>

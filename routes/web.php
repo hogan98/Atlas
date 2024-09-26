@@ -24,6 +24,9 @@ Route::get('product/{slug}', [App\Http\Controllers\ProductsController::class, 's
 //basket
 Route::resource('basket', App\Http\Controllers\BasketController::class)->except(['create', 'edit']);
 
+//checkout
+Route::resource('checkout', App\Http\Controllers\CheckoutController::class)->except(['create', 'edit']);
+
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function() {
 		Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 

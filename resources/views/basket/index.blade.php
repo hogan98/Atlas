@@ -39,14 +39,14 @@
 
                                 <button type="submit" name="action" value="decrease" class="btn btn-danger btn-sm px-2">-</button>
 
-                                <input type="text" name="quantity" value="{{ $details['quantity'] }}" readonly size="2">
+                                <input type="text" name="quantity" value="{{ $details['qty'] }}" readonly size="2">
 
                                 <button type="submit" name="action" value="increase" class="btn btn-success btn-sm px-2">+</button>
                             </form>
                         </div>
 
                         @php
-                            $total += $details['price'] * $details['quantity'];
+                            $total += $details['price'] * $details['qty'];
                         @endphp
                     @endforeach
 
@@ -59,7 +59,7 @@
                         </div>
                         <div class="button-row">
                             <p><strong>Total: <span>€{{ $total }}</span></strong></p>
-                            <button class="btn li-green-custom-btn px-2 py-2">Checkout Securely</button>
+                            <a href="{{ route('checkout.index') }}" class="btn li-green-custom-btn px-2 py-2">Checkout Securely</a>
                         </div>
                     </div>
                 </div>

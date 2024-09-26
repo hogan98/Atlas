@@ -12,7 +12,7 @@ class Purchase extends Model
     protected $fillable = [
         'qty',
         'price',
-        'order_id',
+        'order_id', //self populated
         'product_id',
     ];
 

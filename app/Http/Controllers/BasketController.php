@@ -32,12 +32,13 @@ class BasketController extends Controller
 
         // If the product is already in the basket, increase the quantity
         if (isset($basket[$product->id])) {
-            $basket[$product->id]['quantity']++;
+            $basket[$product->id]['qty']++;
         } else {
-            // Otherwise, add the product to the basket with quantity 1
+            // Otherwise, add the product to the basket with qty 1
             $basket[$product->id] = [
+                'product_id' => $product->id,
                 'name' => $product->name,
-                'quantity' => 1,
+                'qty' => 1,
                 'price' => $product->price,
                 'image' => $product->image,
                 'description' => $product->description, 
@@ -73,13 +74,13 @@ public function update(Request $request, $id)
 
         // Handle the increase and decrease actions
         if ($request->action == 'increase') {
-            $basket[$id]['quantity'] += 1; 
+            $basket[$id]['qty'] += 1; 
         } elseif ($request->action == 'decrease') {
             
-            if ($basket[$id]['quantity'] > 1) {
-                $basket[$id]['quantity'] -= 1; 
+            if ($basket[$id]['qty'] > 1) {
+                $basket[$id]['qty'] -= 1; 
             } else {
-                unset($basket[$id]); // Remove product from basket if quantity is 0
+                unset($basket[$id]); // Remove product from basket if qty is 0
             }
         }
 

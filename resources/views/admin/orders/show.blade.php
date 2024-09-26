@@ -11,10 +11,19 @@
                 <thead>
                     <tr>
                         <th scope="col">
-                            Status
+                            Guest Name
                         </th>
                         <th scope="col">
-                            User Name 
+                            Guest Email
+                        </th>
+                        <th scope="col">
+                            Guest Phone Number
+                        </th>
+                        <th scope="col">
+                            Guest Address
+                        </th>
+                        <th scope="col">
+                            Status
                         </th>
                         <th scope="col">
                             Created At
@@ -40,11 +49,21 @@
                     @endphp
 
                     <tr>
-                        <td class="{{ $statusClass }}">
-                            {{ $order->status->name }}
+                        <td>
+                            {{ $order->name }}
                         </td>
                         <td>
-                            {{ $order->user->name }}
+                            {{ $order->email }}
+                        </td>
+                        <td>
+                            {{ $order->phone }}
+                        </td>
+                        <td>
+                            {{ $order->address }}
+                        </td>
+                        
+                        <td class="{{ $statusClass }}">
+                            {{ $order->status->name }}
                         </td>
                         <td>
                             {{ $order->created_at?->format('d/m/Y H:i')}}
