@@ -18,7 +18,7 @@ class OrdersController extends Controller
     public function index()
     {
         $orders = Order::with('user', 'status')
-                    ->orderBy('created_at')
+                    ->orderByDesc('created_at')
                     ->get();       
 
         return view('admin.orders.index', compact('orders'));
